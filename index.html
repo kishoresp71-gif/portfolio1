@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renu's Work Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid #1f2937;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: #111827;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h1, h2 {
+      margin-bottom: 0.75rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-text p {
+      margin-bottom: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #111827;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1d4ed8, #020617);
+      border-radius: 16px;
+      padding: 1.25rem;
+      border: 1px solid #1f2937;
+    }
+
+    .hero-card h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info-item {
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-info-item span {
+      color: #9ca3af;
+      font-size: 0.8rem;
+      margin-right: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: #020617;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #1f2937;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 0.5rem 0.75rem 0.65rem;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .card-meta {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 1.5rem;
+    }
+
+    .contact-text p {
+      color: #9ca3af;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    form {
+      background: #020617;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+    }
+
+    .form-row {
+      margin-bottom: 0.75rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #374151;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 0.85rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      color: #f9fafb;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-top: 0.25rem;
+    }
+
+    button:hover {
+      opacity: 0.95;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6b7280;
+      padding: 0.75rem 1rem 1.5rem;
+      border-top: 1px solid #111827;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">Renu Work</div>
+      <nav class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <a href="#enquiry">Enquiry</a>
+      </nav>
+    </div>
+  </header>
+
+    <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Ray</h1>
+        <p>Short line about what you do. For example: “Freelance photographer & visual storyteller based in [City].”</p>
+        <div class="hero-tags">
+          <span class="tag">Photography</span>
+          <span class="tag">Portfolio</span>
+          <span class="tag">Open for work</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h2>Quick contact</h2>
+        <div class="contact-info-item">
+          <span>Email</span> you@example.com
+        </div>
+        <div class="contact-info-item">
+          <span>Phone</span> +91-00000-00000
+        </div>
+        <div class="contact-info-item">
+          <span>Instagram</span> @yourhandle
+        </div>
+      </aside>
+    </section>
+
+    <!-- WORK / PHOTOS -->
+    <section id="work">
+      <h2>Recent work</h2>
+      <p style="color:#9ca3af; font-size:0.9rem; margin-top:0.15rem;">
+        A few examples of my recent shoots. Replace these images with your own work.
+      </p>
+      <div class="gallery-grid">
+        <article class="card">
+          <img src="https://images.pexels.com/photos/2837009/pexels-photo-2837009.jpeg" alt="Sample work 1" />
+          <div class="card-body">
+            <h3 class="card-title">Portrait session</h3>
+            <p class="card-meta">Outdoor • Natural light</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.pexels.com/photos/3137073/pexels-photo-3137073.jpeg" alt="Sample work 2" />
+          <div class="card-body">
+            <h3 class="card-title">Event photography</h3>
+            <p class="card-meta">Live event • Candid moments</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg" alt="Sample work 3" />
+          <div class="card-body">
+            <h3 class="card-title">Product shoot</h3>
+            <p class="card-meta">Studio • Clean background</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.pexels.com/photos/1755385/pexels-photo-1755385.jpeg" alt="Sample work 4" />
+          <div class="card-body">
+            <h3 class="card-title">Lifestyle</h3>
+            <p class="card-meta">On location • Storytelling</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT + ENQUIRY FORM -->
+    <section id="contact">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <h2>Contact & enquiries</h2>
+          <p>
+            For bookings, collaborations, or general questions, fill out the enquiry form and you will get a reply as soon as possible.
+          </p>
+          <p>
+            You can also reach directly via email or Instagram mentioned above.
+          </p>
+        </div>
+
+        <section id="enquiry">
+          <form
+            action="FORM_ACTION_URL_HERE"
+            method="POST"
+          >
+            <!-- Example: a static form service might need a hidden access key -->
+            <!-- <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" /> -->
+
+            <div class="form-row">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="text" />
+            </div>
+
+            <div class="form-row">
+              <label for="message">Message / enquiry</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit">Send enquiry</button>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Your Name. All rights reserved.
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
